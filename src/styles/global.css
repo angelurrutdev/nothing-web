@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Ndot';
+  src: url('/fonts/ndot-47.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/fonts/Onest-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme{
+--font-nothing: Ndot, 'sans-serif' ;
+--font-onest: Onest, 'system-ui' ;
+--cp-v: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 50% 100%, 0 85%);
+}
+
+.clip-custom {
+  clip-path: var(--cp-v);
+}
+
+

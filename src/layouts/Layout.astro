@@ -1,0 +1,21 @@
+---
+import Header from "@/components/Header.astro";
+import "@/styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Nothing Phone Web | Clone</title>
+  </head>
+  <body class="font-onest bg-black text-white">
+    <Header />
+
+    <slot />
+  </body>
+</html>
+
+<style is:global></style>

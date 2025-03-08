@@ -1,0 +1,68 @@
+---
+import Button from "./Button.astro";
+---
+
+<nav
+  class="bg-neutral-200/50 lg:bg-transparent fixed top-0 left-0 right-0 z-50 backdrop-blur-lg text-white"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+    <a href="/" class="font-nothing text-xl">NOTHING (R)</a>
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    <div id="nav-menu-desktop" class="hidden md:flex space-x-4">
+      <Button href="">Phone (2)</Button>
+      <Button href="">Glyph Interface</Button>
+      <Button href="">Nothing OS 3.0</Button>
+      <Button href="">Camera</Button>
+      <Button href="">Premium</Button>
+      <Button href="">Baterry</Button>
+      <Button href="">Specs</Button>
+      <Button href="">Buy</Button>
+    </div>
+  </div>
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden flex flex-col space-y-2 px-4 pb-2 z-[100]"
+  >
+    <Button href="">Phone (2)</Button>
+    <Button href="">Glyph Interface</Button>
+    <Button href="">Nothing OS 3.0</Button>
+    <Button href="">Camera</Button>
+    <Button href="">Premium</Button>
+    <Button href="">Baterry</Button>
+    <Button href="">Specs</Button>
+    <Button href="">Buy</Button>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById(
+      "menu-toggle"
+    ) as HTMLButtonElement | null;
+    const mobileMenu = document.getElementById(
+      "mobile-menu"
+    ) as HTMLDivElement | null;
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    } else {
+      console.error("Elemento 'menu-toggle' o 'mobile-menu' no encontrado.");
+    }
+  });
+</script>

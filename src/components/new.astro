@@ -1,0 +1,370 @@
+---
+
+---
+
+<section
+  class="relative z-10 mx-auto my-24 max-w-[70ch] text-pretty px-6 text-left text-xl sm:px-20"
+>
+  <h1
+    class="mx-auto mb-10 text-wrap text-center text-4xl font-semibold tracking-wide"
+  >
+    The new Glyph Interface Love at first light
+  </h1>
+  <p>
+    For a world craving more me-time and less screen-time, we bring you the
+    Glyph Interface. Assign different light and sound sequences for each contact
+    and notification type and be one step ahead of who’s getting in touch. Key
+    information, in a flash.
+  </p>
+</section>
+
+<swiper-container
+  style="--swiper-navigation-color: var(--white); --swiper-pagination-color: var(--white)"
+  class="mySwiper"
+  pagination="true"
+  pagination-clickable="true"
+  navigation="true"
+  centered-slides="true"
+  autoplay-delay="4000"
+  autoplay-disable-on-interaction="true"
+  rewind="true"
+  id="interface"
+>
+  <swiper-slide>
+    <video src="/video1.webm" playsinline autoplay loop muted preload="none"
+    ></video>
+
+    <div class="info-slider">
+      <h1>Everyday Functions</h1>
+
+      <h2>Without needing to look at the screen</h2>
+
+      <p>
+        See key information and track its evolution through individual Glyph
+        segments. Use the lights as a timer, battery indicator, volume level
+        check, and your own portable ring light. A genius.
+      </p>
+    </div>
+  </swiper-slide>
+
+  <swiper-slide>
+    <video src="/video2.webm" playsinline autoplay loop muted preload="none"
+    ></video>
+
+    <div class="info-slider">
+      <h1>Glyph Notifications</h1>
+
+      <h2>Put the phone aside</h2>
+
+      <p>
+        The new Essential Notifications allow you to focus and continue to be
+        available for important people. When selected contacts or applications
+        send you a notification, a Glyph light flashes insistently until you
+        open it. Everything else can wait.
+      </p>
+    </div>
+  </swiper-slide>
+
+  <swiper-slide>
+    <video src="/video3.webm" playsinline autoplay loop muted preload="none"
+    ></video>
+
+    <div class="info-slider">
+      <h1>Glyph Composer</h1>
+
+      <h2>"Put a ring on it"</h2>
+
+      <p>
+        The stage is yours. Touch the different keys to activate a different
+        combination of lights and sounds. When you find your rhythm, press to
+        record and create your own Glyph ringtones.
+      </p>
+    </div>
+  </swiper-slide>
+</swiper-container>
+
+<style>
+  .show {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 200vh;
+    position: relative;
+  }
+
+  @media (width <= 768px) {
+    .show {
+      justify-content: space-around;
+      height: 150vh;
+      margin-bottom: 40rem;
+    }
+  }
+
+  .first-img {
+    position: relative;
+
+    animation: movePhone linear both;
+    animation-timeline: view();
+    animation-range: entry 65% cover 70%;
+  }
+
+  @media (width <= 768px) {
+    .first-img {
+      animation: movePhone-mq linear both;
+      animation-timeline: view();
+      animation-range: entry 65% cover 70%;
+    }
+  }
+
+  .info-interface {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 2rem;
+
+    gap: 5rem;
+
+    position: relative;
+  }
+
+  .info-interface img {
+    position: relative;
+    z-index: 2;
+
+    max-height: 80vh;
+
+    view-timeline-name: --phone;
+    view-timeline-axis: block;
+    animation-timeline: --phone;
+    animation-name: info-phone;
+    animation-range: 20% 40%;
+    animation-fill-mode: both;
+  }
+
+  @media (width <= 768px) {
+    .info-interface {
+      display: none;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 60%;
+    gap: 2rem;
+
+    color: var(--white);
+    font-family: var(--primaryFont);
+    z-index: 1;
+
+    view-timeline-name: --phone;
+    view-timeline-axis: block;
+    animation-timeline: --phone;
+    animation-name: info-text;
+    animation-range: 5% 30%;
+    animation-fill-mode: both;
+  }
+
+  @media (width <= 768px) {
+    .info {
+      max-width: 100%;
+
+      view-timeline-name: --phone;
+      view-timeline-axis: block;
+      animation-timeline: --phone;
+      animation-name: info-text-media;
+      animation-range: 30% 50%;
+      animation-fill-mode: both;
+    }
+  }
+
+  .info h1 {
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  .info h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .info p {
+    text-align: center;
+    text-wrap: pretty;
+  }
+
+  @keyframes movePhone {
+    0% {
+      transform: translateY(200px);
+      opacity: 0;
+      scale: 1;
+    }
+
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+      scale: 1;
+    }
+
+    100% {
+      scale: 2.5;
+      opacity: 0;
+    }
+  }
+
+  @keyframes movePhone-mq {
+    0% {
+      transform: translateY(200px);
+      opacity: 0;
+    }
+
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes info-phone {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+      /* scale: 0.9; */
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+      /* scale: 1; */
+    }
+  }
+
+  @keyframes info-text {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+      scale: 0.9;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+      scale: 1;
+    }
+  }
+
+  @keyframes info-text-media {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+      scale: 0.9;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      scale: 1;
+    }
+  }
+
+  swiper-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  swiper-slide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    color: var(--white);
+  }
+
+  @media (width <= 768px) {
+    swiper-slide {
+      position: relative;
+    }
+  }
+
+  swiper-slide video {
+    width: 50%;
+    height: 100%;
+    border-radius: 0 5rem 5rem 0;
+  }
+
+  @media (width <= 768px) {
+    swiper-slide video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      border-radius: 0rem;
+    }
+  }
+
+  .info-slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    color: var(--white);
+    font-family: var(--primaryFont);
+    z-index: 1;
+
+    animation: intro-slider ease-in-out 1s;
+  }
+
+  .info-slider h1 {
+    font-size: 5rem;
+    animation: intro-info both;
+    animation-timeline: view();
+    animation-range: entry 65% cover 70%;
+
+    text-wrap: balance;
+    text-align: center;
+  }
+
+  .info-slider h2 {
+    font-size: 3rem;
+    text-wrap: balance;
+
+    text-align: center;
+  }
+
+  .info-slider p {
+    font-family: var(--secondaryFont);
+    width: 60%;
+    text-wrap: pretty;
+    text-align: center;
+  }
+
+  @media (width <= 768px) {
+    .info-slider h2 {
+      font-size: 2rem;
+    }
+
+    .info-slider p {
+      width: 80%;
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+<!-- Swiper JS -->
+<script
+  src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
+></script>
