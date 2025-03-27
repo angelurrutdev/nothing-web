@@ -1,9 +1,51 @@
 ---
 import Button from "./Button.astro";
+const navItems = [
+  {
+    title: "Phone (2)",
+    label: "phone-2",
+    url: "/#phone-2",
+  },
+  {
+    title: "Glyph Interface",
+    label: "glyph-interface",
+    url: "/#glyph-interface",
+  },
+  {
+    title: "Nothing OS 3.0",
+    label: "nothing-os",
+    url: "/#nothing-os",
+  },
+  {
+    title: "Camera",
+    label: "camera",
+    url: "/#camera",
+  },
+  {
+    title: "Premium",
+    label: "premium",
+    url: "/#premium",
+  },
+  {
+    title: "Battery",
+    label: "battery",
+    url: "/#battery",
+  },
+  {
+    title: "Specs",
+    label: "specs",
+    url: "/#specs",
+  },
+  {
+    title: "Buy",
+    label: "buy",
+    url: "/#buy",
+  },
+];
 ---
 
 <nav
-  class="bg-neutral-200/50 lg:bg-transparent fixed top-0 left-0 right-0 z-50 backdrop-blur-lg text-white"
+  class="bg-neutral-200/50 lg:bg-neutral-700/20 fixed top-0 left-0 right-0 z-50 backdrop-blur-lg text-white"
 >
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
     <a href="/" class="font-nothing text-xl">NOTHING (R)</a>
@@ -23,14 +65,18 @@ import Button from "./Button.astro";
       </svg>
     </button>
     <div id="nav-menu-desktop" class="hidden md:flex space-x-4">
-      <Button href="">Phone (2)</Button>
-      <Button href="">Glyph Interface</Button>
-      <Button href="">Nothing OS 3.0</Button>
-      <Button href="">Camera</Button>
-      <Button href="">Premium</Button>
-      <Button href="">Baterry</Button>
-      <Button href="">Specs</Button>
-      <Button href="">Buy</Button>
+      {
+        navItems.map((link) => (
+          <a
+            class="relative block px-2 py-2 transition hover:text-red-500 dark:hover:text-red-500"
+            aria-label={link.label}
+            href={link.url}
+            data-section={link.label}
+          >
+            {link.title}
+          </a>
+        ))
+      }
     </div>
   </div>
   <div
@@ -56,6 +102,7 @@ import Button from "./Button.astro";
     const mobileMenu = document.getElementById(
       "mobile-menu"
     ) as HTMLDivElement | null;
+    const navLinks = document.querySelectorAll("#nav-menu-desktop a");
 
     if (menuToggle && mobileMenu) {
       menuToggle.addEventListener("click", () => {
@@ -64,5 +111,31 @@ import Button from "./Button.astro";
     } else {
       console.error("Elemento 'menu-toggle' o 'mobile-menu' no encontrado.");
     }
+
+    function setActiveLink() {
+      const scrollPosition = window.scrollY;
+
+      navLinks.forEach((link) => {
+        const sectionId: any = link.getAttribute("data-section");
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            link.classList.add("text-red-500");
+          } else {
+            link.classList.remove("text-red-500");
+          }
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    setActiveLink();
   });
 </script>
