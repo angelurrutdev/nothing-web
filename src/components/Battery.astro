@@ -1,0 +1,120 @@
+---
+import SectionContainer from "./SectionContainer.astro";
+import SectionTitle from "./SectionTitle.astro";
+
+const speechItems = [
+  {
+    video: "/video8.webm",
+    title: "Battery",
+    second_title: "A battery that goes on and on",
+    subtitle:"At 4700 mAh, Phone (2) has our longest-lasting battery to date. Fully charges in just 55 minutes. Lasts up to 22.5 hours. Support 15W Qi wireless charging."
+
+  }
+]
+---
+
+<section class="bg-black  text-white">
+  <SectionContainer class="mx-8">
+    <section
+      class="specifications flex flex-col items-center justify-center relative gap-50"
+    >
+      {
+        speechItems.map((specs) => (
+          <article
+            class="container-spe flex flex-row items-center justify-between heigh-100vh"
+            id={specs.title}
+          >
+            <video
+              src={specs.video}
+              class="rounded-lg w-1/2 h-full"
+              playsinline
+              autoplay
+              loop
+              muted
+              preload="none"
+            />
+
+            <div class="info-spe flex flex-col items-center justify-center gap-8">
+              <h1 class="text-[5rem] font-bold">{specs.title}</h1>
+
+              <h2 class="text-2xl font-normal text-center">
+                {specs.second_title}
+              </h2>
+
+              <p class="text-xl font-normal max-w-[80%] text-center text-pretty ">
+                {specs.subtitle}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </SectionContainer>
+</section>
+
+<style>
+  @media (width <= 768px) {
+    .specifications {
+      margin-bottom: 50vh;
+    }
+  }
+
+  .container-spe {
+    animation: text-ani both;
+    animation-timeline: view();
+    animation-range: entry 40% cover 50%;
+  }
+
+  @media (width <= 768px) {
+    .container-spe {
+      flex-direction: column;
+    }
+
+    .container-spe video {
+      width: 100%;
+      border-radius: 2rem 2rem 0 0;
+    }
+  }
+
+  .info-spe h1 {
+    animation: text-ani both;
+    animation-timeline: view();
+    animation-range: entry 90% cover 100%;
+  }
+
+  .info-spe h2 {
+    animation: text-ani both;
+    animation-timeline: view();
+    animation-range: entry 80% cover 90%;
+  }
+
+  .info-spe p {
+    animation: text-ani both;
+    animation-timeline: view();
+    animation-range: entry 50% cover 60%;
+  }
+
+  @keyframes text-ani {
+    from {
+      opacity: 0;
+      transform: translateY(5rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes container-ani {
+    from {
+      opacity: 0;
+      transform: translateY(10rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
