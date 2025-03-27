@@ -1,0 +1,134 @@
+---
+import "photoswipe/style.css";
+import SectionContainer from "./SectionContainer.astro";
+import SectionTitle from "./SectionTitle.astro";
+import SliderContainer from "./SliderContainer.astro";
+import Slider from "./Slider.astro";
+import InvertSlider from "./InvertSlider.astro";
+
+const galleryItems = [
+  {
+    img: "/imagen5.webp",
+    imgThumb: "/imagen5.webp",
+  },
+  {
+    img: "/imagen6.jpg",
+    imgThumb: "/imagen6.webp",
+  },
+  {
+    img: "/imagen7.webp",
+    imgThumb: "/imagen7.webp",
+  },
+  {
+    img: "/imagen8.webp",
+    imgThumb: "/imagen8.webp",
+  },
+  {
+    img: "/imagen9.webp",
+    imgThumb: "/imagen9.webp",
+  },
+  {
+    img: "/imagen10.webp",
+    imgThumb: "/imagen10.webp",
+  },
+  {
+    img: "/imagen11.webp",
+    imgThumb: "/imagen11.webp",
+  },
+  {
+    img: "/imagen12.webp",
+    imgThumb: "/imagen12.webp",
+  },
+  {
+    img: "/imagen13.webp",
+    imgThumb: "/imagen13.webp",
+  },
+]
+---
+
+
+<section class="bg-primwhite text-black rounded-lg">
+  <img src="/imagen3.webp" class="rounded-lg bg-white" loading="lazy" alt="" />
+  <SectionContainer class="mx-8">
+    <SectionTitle
+      title="Camera"
+      subtitle="Phone (27 effortlessly captures real life as it’s happening. With an 18-bit Image Signal Processor (ISP), it is capable of capturing 4,000 times more camera data than Phone (1). Allowing us to deliver advanced new algorithms that make photos and videos more dynamically accurate than ever. "
+    />
+
+    <div class="gallery" id="gallery">
+      {
+        galleryItems.map((gallery) => (
+      <a
+        href={gallery.img}
+        target="_blank"
+        class="p-2"
+        data-pswp-width="2000"
+        data-pswp-height="1500"
+      >
+        <img src={gallery.imgThumb} alt="gallery image" loading="lazy" />
+      </a>
+        ))
+      }
+    </div>
+
+    <SliderContainer>
+      <Slider
+      video="/video7.webm"
+      title="Advanced HDR"
+      description="Get the perfect shot with Advanced HDR. Now with 3 times more data, Advanced HDR captures 8 frames with different levels of exposure in the RAW domain. Selects the best details in each frame and fuses a final image that captures the most true-to-life result. Works with Night Mode to reduce noise and deliver clear-as-day shots at any hour."
+      />
+      <Slider
+      video="/video10.webm"
+      title="Game-changing selfies"
+      description="For picture-perfect portraits, we gave the front camera a bigger 32 MP sensor, which is two times more than Phone (1). Brings every colour, hue and expression to life. You in your best light."
+      />
+    </SliderContainer>
+
+    <SliderContainer>
+      <InvertSlider
+      video="/video6.webm"
+      title="Dual rear camera"
+      description="We upgraded the 50 MP main +50 MP ultra-wide camera with smart tuning effects to make Phone (2) a front-runner. Including a new Motion Capture 2.0 algorithm, which uses AI technology to accurately detect moving subjects in real-time. And 2X Super-Res Zoom that can preserve any scene's finest details."
+      />
+
+      <InvertSlider
+      video="/video11.webm"
+      title="Vivid Video"
+      description="Clear as crystal, steady as a rock. Create moving masterpieces in 4K 60fps on the main rear camera. For high-action scenes, turn on Action Mode. Works alongside in-built dual stabilisation for sensationally smooth results when you're on the move. Or make yourself the star and film front- on in 1080P at 60fps."
+      />
+    </SliderContainer>
+    <h2 class="text-4xl text-center mx-auto py-2">#WithNothing</h2>
+  </SectionContainer>
+</section>
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+  });
+  lightbox.init();
+</script>
+
+<style>
+  .gallery {
+    columns: 3;
+    column-gap: 1rem;
+    margin: 1rem;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.01);
+    filter: brightness(1.2);
+  }
+</style>
