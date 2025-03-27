@@ -18,4 +18,26 @@ import "@/styles/global.css";
   </body>
 </html>
 
-<style is:global></style>
+<style is:global>
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #f6faff;
+    border-radius: 1rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  #header-nav {
+    animation: blur linear both 0.5s;
+    animation-timeline: scroll();
+    animation-range: 0 500px;
+  }
+
+</style>
