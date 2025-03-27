@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  class?: string;
+}
+
+const { class: className, title, subtitle } = Astro.props;
+---
+
+<section
+  class={`presentation relative z-5 mx-auto my-24 max-w-[70ch] text-pretty px-6 text-center text-xl sm:px-20 ${className}`}
+>
+  <h1
+    class="mx-auto mb-4 text-wrap text-center text-4xl font-semibold tracking-wide"
+  >
+    {title}
+  </h1>
+  <p>
+    {subtitle}
+  </p>
+</section>
+
+<style>
+  
+  .presentation{
+        animation: presentation-appear both;
+        animation-timeline: view();
+        animation-range-start: entry 75%;
+        animation-range-end: entry 95%;
+    }
+
+  @keyframes presentation-appear{
+        from{
+            transform: translateY(-200px);
+            opacity: 0;
+        }
+        to{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    } 
+</style>
