@@ -15,11 +15,13 @@
 }
 
 @import "tailwindcss";
+@import "tailwindcss-animated";
 
 @theme{
---font-nothing: Ndot, 'sans-serif' ;
+--font-nothing: Ndot, 'system-ui' ;
 --font-onest: Onest, 'system-ui' ;
 --cp-v: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 50% 100%, 0 85%);
+--color-primwhite: #F6FAFF;
 }
 
 .clip-custom {
