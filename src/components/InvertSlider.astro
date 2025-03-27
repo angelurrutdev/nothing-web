@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  video?: string;
+  image?: string;
+}
+
+const { title, description, video, image } = Astro.props;
+---
+
+<swiper-slide>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div class="px-2">
+      <h2 class="text-2xl font-semibold mb-4">{title}</h2>
+      <p class="text-lg leading-relaxed">{description}</p>
+    </div>
+    <div class="flex justify-center">
+      {
+        video ? (
+          <video
+            src={video}
+            playsinline
+            autoplay
+            loop
+            muted
+            class="w-full h-full object-cover rounded-xl"
+          />
+        ) : image ? (
+          <img
+            src={image}
+            alt={title}
+            class="w-full h-full object-cover rounded-xl"
+          />
+        ) : null
+      }
+    </div>
+  </div>
+</swiper-slide>
