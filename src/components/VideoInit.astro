@@ -1,7 +1,3 @@
----
-import Button from "@/components/Button.astro";
----
-
 <div
   class="relative h-dvh w-full max-w-[100vw] md:aspect-video md:h-[80vh] xl:h-full text-white"
 >
@@ -35,38 +31,22 @@ import Button from "@/components/Button.astro";
       playsinline
       id="main-video"
       preload="metadata"
-      class="video hidden clip-custom size-full object-cover object-top animate-duration-[2s] animate-ease-in-out"
+      class="video clip-custom size-full object-cover object-top animate-duration-[2s] animate-ease-in-out"
     >
-      <source src="/VideoInit.webm" type="video/webm" />
+      <source src="/WelcomeVideo.webm" type="video/webm" />
     </video>
   </div>
   <video
-    class="video absolute hidden -bottom-5 -z-40 blur-3xl animate-duration-[2s] animate-ease-in-out"
+    class="video absolute  -bottom-50 -z-20 blur-2xl animate-duration-[2s] animate-ease-in-out"
     autoplay
     loop
     muted
     preload="metadata"
   >
-    <source src="/VideoInit.webm" type="video/webm" />
+    <source src="/WelcomeVideo.webm" type="video/webm" />
   </video>
 </div>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const firstVideo = document.querySelector("#main-video");
-
-    if (firstVideo) {
-      console.log("Video encontrado");
-
-      firstVideo.addEventListener("loadeddata", () => {
-        console.log("Evento loadeddata disparado");
-        firstVideo.classList.remove("hidden");
-      });
-    } else {
-      console.log("Video no encontrado");
-    }
-  });
-</script>
 <style>
   .subtitle {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);

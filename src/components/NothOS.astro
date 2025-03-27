@@ -1,59 +1,76 @@
-<section class="max-w-7xl mx-auto p-8">
-    <div class="mb-12">
-        <h1 class="text-4xl font-bold mb-2">Nothing OS 3.0</h1>
-        <p class="text-xl text-gray-600">Your stamp on Nothing</p>
-    </div>
-    <swiper-container
-        style="--swiper-navigation-color: #333; --swiper-pagination-color: #333;"
-        class="mySwiper w-full h-[600px]"
-        pagination="true"
-        pagination-clickable="true"
-        navigation="true"
-        centered-slides="true"
-        autoplay-delay="4000"
-        autoplay-disable-on-interaction="true"
-        rewind="true"
-        id="interface"
-    >
-        <swiper-slide>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="flex justify-center">
-                    <video src="/video3.webm" playsinline autoplay loop muted class="w-full h-full object-cover rounded-xl"></video>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-semibold mb-4">Funciones diarias</h2>
-                    <p class="text-lg leading-relaxed">
-                        Vea información clave y siga su evolución a través de segmentos Glyph individuales. Utilice las luces como temporizador, indicador de batería, control de nivel de volumen y su propia luz de anillo portátil. Un genio.
-                    </p>
-                </div>
-            </div>
-        </swiper-slide>
-        <swiper-slide>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="flex justify-center">
-                    <video src="/video3.webm" playsinline autoplay loop muted class="w-full h-full object-cover rounded-xl"></video>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-semibold mb-4">Notificaciones Glyph</h2>
-                    <p class="text-lg leading-relaxed">
-                        Las nuevas notificaciones esenciales le permiten concentrarse y seguir estando disponible para personas importantes. Cuando los contactos o aplicaciones seleccionados le envían una notificación, una luz Glyph parpadea insistentemente hasta que la abre. Todo lo demás puede esperar.
-                    </p>
-                </div>
-            </div>
-        </swiper-slide>
-        <swiper-slide>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="flex justify-center">
-                    <video src="/video3.webm" playsinline autoplay loop muted class="w-full h-full object-cover rounded-xl"></video>
-                </div>
-                <div>
-                    <h2 class="text-2xl font-semibold mb-4">Compositor Glyph</h2>
-                    <p class="text-lg leading-relaxed">
-                        El escenario es tuyo. Toca las diferentes teclas para activar una combinación diferente de luces y sonidos. Cuando encuentres tu ritmo, presiona para grabar y crear tus propios tonos de llamada Glyph.
-                    </p>
-                </div>
-            </div>
-        </swiper-slide>
-    </swiper-container>
+---
+import SectionContainer from "./SectionContainer.astro";
+import SectionTitle from "./SectionTitle.astro";
+import Slider from "./Slider.astro";
+import SliderContainer from "./SliderContainer.astro";
+---
+
+<section class="bg-primwhite text-black">
+  <img src="/imagen4.webp" class="rounded-lg " loading="lazy" alt="" />
+  <SectionContainer class="mx-8">
+    <SectionTitle
+      title="Nothing OS 3.0"
+      subtitle="Taking inspiration from the phone’s iconic hardware design, we’ve given our software a new visual identity that feels unmistakably Nothing."
+    />
+    <SliderContainer>
+      <Slider
+        video="NOTH_OSV1.mp4"
+        title="Nothing DNA"
+        description="As sleek and unique as a device should be. Explore the Dot Engine amongst hundreds of bespoke Nothing animations, icons and fonts"
+      />
+      <Slider
+        video="NOTH_OSV2.mp4"
+        title="Functional customisations"
+        description="Personal touches that make snse to you. Dive into Quick Settings and Loock Screen customisations to unlock innovate new daily shortcuts"
+      />
+      <Slider
+        video="NOTH_OSV3.mp4"
+        title="Real Connections"
+        description="Prioritise people, not apps. Discover new ways to stay connected with Shared Widgets. Send direct reactions and responses straight to your favourite people's lock screens"
+      />
+      <Slider
+        image="NOTH_OSV4.webp"
+        title="Powered by Android 15"
+        description="The latest innovations experienced through the eyes of Nothing. With 3 years of major Android updates and 4 years of security updates"
+      />
+    </SliderContainer>
+    <SectionTitle
+      title="ChatGPT, integrated"
+      subtitle="Ask, listen and learn from ChatGPT on-the-go. A first-of-its-kind integration, made for your Nothing ecosystem. Only on Nothing earbuds when connected to a Nothing phone. Compatible with Phone (1), Phone (2) and Phone (2a)."
+    />
+
+    <article class="grid grid-cols-2 cursor-default text-left">
+      <section class="items-center justify-center">
+        <img
+          src="chatgpt_1.webp"
+          class="hover:scale-90 transition m-2"
+          loading="lazy"
+          alt="Powered by ChatGPT Image "
+        />
+        <div class="mx-3 text-pretty">
+          <h2 class="text-4xl">Voice control</h2>
+          <p>
+            Use your voice to access ChatGPT on Ear and Ear (a), wherever you
+            are. Setup via the Nothing X app. Coming soon to Ear (1), Ear (2)
+            and Ear (stick).
+          </p>
+        </div>
+      </section>
+      <section class="items-center justify-center">
+        <img
+          src="chatgpt_2.webp"
+          class="hover:scale-90 transition m-2"
+          loading="lazy"
+          alt="Powered by ChatGPT Image "
+        />
+        <div class="mx-3 text-pretty pb-6">
+          <h2 class="text-4xl">Bespoke Nothing Widgets</h2>
+          <p>
+            Get the answers you need faster, and at your fingertips. Text, voice
+            or image search right from your home screen.
+          </p>
+        </div>
+      </section>
+    </article>
+  </SectionContainer>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
