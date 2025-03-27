@@ -1,74 +1,38 @@
-<section class="max-w-7xl mx-auto p-8">
-  <section
-    class="relative z-10 mx-auto my-24 max-w-[70ch] text-pretty px-6 text-left text-xl sm:px-20"
-  >
-    <h1
-      class="mx-auto mb-10 text-wrap text-center text-4xl font-semibold tracking-wide"
-    >
-      The new Glyph Interface Love at first light
-    </h1>
-    <p>
-      For a world craving more me-time and less screen-time, we bring you the
-      Glyph Interface. Assign different light and sound sequences for each contact
-      and notification type and be one step ahead of who’s getting in touch. Key
-      information, in a flash.
-    </p>
-  </section>
-  <swiper-container
-    style="--swiper-navigation-color: #333; --swiper-pagination-color: #333;"
-    class="mySwiper w-full h-[600px]"
-    pagination="true"
-    autoplay-delay="7500"
-    pagination-clickable="true"
-    navigation="true"
-    centered-slides="true"
-    rewind="true"
-    id="interface"
-  >
-    <swiper-slide>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="flex justify-center">
-          <video src="/video1.webm" playsinline autoplay loop muted class="w-full h-full object-cover rounded-xl"></video>
-        </div>
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Everyday Functions</h2>
-          <p class="text-lg leading-relaxed">
-            Without needing to look at the screen See key information and track its evolution through individual Glyph
-            segments. Use the lights as a timer, battery indicator, volume level
-            check, and your own portable ring light. A genius.
-          </p>
-        </div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="flex justify-center">
-          <video src="/video2.webm" playsinline autoplay loop muted class="w-full h-full object-cover rounded-xl"></video>
-        </div>
-        <div>
-          <h2 class="text-2xl font-semibold mb-4">Glyph Notifications</h2>
-          <p class="text-lg leading-relaxed">
-            Put the phone aside The new Essential Notifications allow you to focus and continue to be
-            available for important people. When selected contacts or applications
-            send you a notification, a Glyph light flashes insistently until you
-            open it. Everything else can wait.
-          </p>
-        </div>
-      </div>
-    </swiper-slide>
-    <swiper-slide>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div class="flex justify-center">
-              <video src="/video3.webm" playsinline autoplay loop muted class="w-full h-full object-cover rounded-xl" width="1920" height="1080"></video>
-          </div>
-          <div>
-              <h2 class="text-2xl font-semibold mb-4">Glyph Composer</h2>
-              <p class="text-lg leading-relaxed">
-                Put a ring on it The stage is yours. Touch the different keys to activate a different combination of lights and sounds. When you find your rhythm, press to record and create your own Glyph ringtones.
-              </p>
-          </div>
-      </div>
-  </swiper-slide>
-  </swiper-container>
-</section>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+---
+import SectionTitle from "./SectionTitle.astro";
+import Slider from "./Slider.astro";
+import InvertSlider from "./InvertSlider.astro";
+import SliderContainer from "./SliderContainer.astro";
+import SectionContainer from "./SectionContainer.astro";
+---
+
+<SectionContainer class="mx-8">
+  <SectionTitle
+    title="The new Glyph Interface Love at first light"
+    subtitle="For a world craving more me-time and less screen-time, we bring you the Glyph Interface. Assign different light and sound sequences for each contact and notification type and be one step ahead of whos getting in touch. Key information, in a flash."
+  />
+  <SliderContainer>
+    <Slider
+      title="Everyday Function"
+      description="Without needing to look at the screen See key information and track its evolution through individual Glyph"
+      video="video1.webm"
+    />
+  </SliderContainer>
+
+  <SliderContainer>
+    <InvertSlider
+      title="Glyph Notifications"
+      description="Put the phone aside The new Essential Notifications allow you to focus and continue to beavailable for important people. When selected contacts or applications send you a notification, a Glyph light flashes insistently until you open it. Everything else can wait."
+      video="video2.webm"
+    />
+
+    <InvertSlider
+      title="Glyph Composer"
+      description="Put a ring on it The stage is yours. Touch the different keys to activate a different combination of lights and sounds. When you find your rhythm, press to record and create your own Glyph ringtones."
+      video="video3.webm"
+    />
+  </SliderContainer>
+</SectionContainer>
+<script
+  src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
+></script>
